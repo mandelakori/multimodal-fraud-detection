@@ -7,10 +7,10 @@ The system combines a **speech-to-text (STT)** model, **emotion detection model*
 
 ## Goals
 
-- Integrate audio and text features into a unified multi-modal pipeline.  
+- Integrate audio and text features into a unified multimodal pipeline.  
 - Extract and leverage **audio characteristics** such as duration, pitch, and loudness.  
 - Capture **emotional cues** from speech that indicate suspicious intent.  
-- Provide a reproducible and interpretable model for multi-modal fraud detection.  
+- Provide a reproducible and interpretable model for multimodal fraud detection.  
 
 ## Demo
 
