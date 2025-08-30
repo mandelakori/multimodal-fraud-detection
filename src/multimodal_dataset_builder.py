@@ -5,7 +5,6 @@ from feature_extraction import build_feature_vector
 data = []
 folders = {"normal": "../data/normal", "fraud": "../data/fraud"} 
 
-# Explicit feature names
 feature_names = ["duration", "pitch", "loudness", "emotion_1", "emotion_2", "emotion_3"]
 
 for label, folder in folders.items():
