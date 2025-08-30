@@ -36,7 +36,11 @@ The system combines a **speech-to-text (STT)** model, **emotion detection model*
 ### Sample Fraud Probabilities (%)
 - 40.5, 90.0, 10.5, 12.5, 4.5
 
-
+# Usage Instructions
+```bash
+pip install -r requirements.txt 
+python inference.py
+```
 ## Demo
 
 All data is **simulated or publicly available**. No real telecom or sensitive customer data is used.  
