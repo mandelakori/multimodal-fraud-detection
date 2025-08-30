@@ -21,11 +21,12 @@ def main():
     # extract features
     try:
         features = build_feature_vector(audio_path)
-        # convert to DataFrame with same feature names as training
-        feature_names = ["duration", "pitch", "loudness", "emotion_1", "emotion_2", "emotion_3"]
+        print("Extracted features:", features)  # debug output
+        feature_names = ["duration", "pitch", "loudness", "sadness", "angry", "disgust", "fear", "happy", "neutral"]
         features_df = pd.DataFrame([features], columns=feature_names)
+        print("Features DataFrame:\n", features_df)  # debug output
     except Exception as e:
-        print("Error extracting features:", e)
+        print("Error extracting features:", e)  
         return
 
     # prediction
