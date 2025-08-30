@@ -18,6 +18,7 @@ for label, folder in folders.items():
                 row[name] = val
             data.append(row)
 
+
 df = pd.DataFrame(data)
 df.to_csv("multimodal_dataset.csv", index=False)
 print(f"Dataset created: {len(df)} rows")
