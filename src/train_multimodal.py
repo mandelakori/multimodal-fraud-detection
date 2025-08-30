@@ -8,14 +8,16 @@ import joblib
 
 # load dataset
 df = pd.read_csv("multimodal_dataset.csv")
-X = df[[c for c in df.columns if c.startswith("feature_")]].values
+X = df[["duration", "pitch", "loudness", "emotion_1", "emotion_2", "emotion_3"]].values
 y = df["label"].map({"normal": 0, "fraud": 1}).values
 
 # handle class imbalance by weighting samples according to duration
 sample_weights = df["duration"].values
 smote = SMOTE(random_state=42)
 X_res, y_res = smote.fit_resample(X, y)
-resampled_weights = np.interp(np.arange(len(y_res)), np.arange(len(sample_weights)), sample_weights)
+
+# approximate weights for resampled data (repeat original durations proportionally)
+resampled_weights = np.tile(sample_weights, int(np.ceil(len(y_res)/len(sample_weights))))[:len(y_res)]
 
 # Train/test split
 X_train, X_test, y_train, y_test = train_test_split(
