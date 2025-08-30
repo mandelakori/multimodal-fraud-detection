@@ -18,7 +18,7 @@ clf = RandomForestClassifier(n_estimators=200, random_state=42)
 clf.fit(X_train, y_train)
 
 # save
-joblib.dump(clf, "models/multimodal_model.pkl")
+joblib.dump(clf, "../models/multimodal_model.pkl")
 print("Model saved as models/multimodal_model.pkl")
 
 # eval
