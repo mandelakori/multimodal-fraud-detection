@@ -10,7 +10,7 @@ import joblib
 # load dataset
 df = pd.read_csv("multimodal_dataset.csv")
 
-emotion columns
+# emotion columns
 emotion_cols = ["sadness","angry","disgust","fear","happy","neutral"]
 X = df[["duration", "pitch", "loudness"] + emotion_cols].values
 y = df["label"].map({"normal": 0, "fraud": 1}).values
@@ -41,7 +41,7 @@ stack = StackingClassifier(
 stack.fit(X_train, y_train)
 
 # save
-joblib.dump(stack, "models/multimodal_model.pkl")
+joblib.dump(stack, "../models/multimodal_model.pkl")
 print("Model saved as models/multimodal_model.pkl")
 
 # eval
@@ -59,3 +59,4 @@ print("Precision-Recall AUC:", average_precision_score(y_test, y_prob / 100))
 cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 cv_scores = cross_val_score(stack, X_res, y_res, cv=cv, scoring="roc_auc")
 print(f"5-Fold CV ROC-AUC: {cv_scores.mean():.3f} ± {cv_scores.std():.3f}")
+
