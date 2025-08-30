@@ -11,9 +11,11 @@ df = pd.read_csv("multimodal_dataset.csv")
 X = df[[c for c in df.columns if c.startswith("feature_")]].values
 y = df["label"].map({"normal": 0, "fraud": 1}).values
 
-# handle class imbalance
+# handle class imbalance by weighting samples according to duration
+sample_weights = df["duration"].values
 smote = SMOTE(random_state=42)
 X_res, y_res = smote.fit_resample(X, y)
+resampled_weights = np.interp(np.arange(len(y_res)), np.arange(len(sample_weights)), sample_weights)
 
 # Train/test split
 X_train, X_test, y_train, y_test = train_test_split(
@@ -28,7 +30,7 @@ clf = RandomForestClassifier(
     class_weight="balanced",
     random_state=42
 )
-clf.fit(X_train, y_train)
+clf.fit(X_train, y_train, sample_weight=resampled_weights)
 
 # save
 joblib.dump(clf, "../models/multimodal_model.pkl")
