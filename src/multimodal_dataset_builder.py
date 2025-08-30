@@ -3,7 +3,7 @@ import pandas as pd
 from feature_extraction import build_feature_vector
 
 data = []
-folders = {"normal": "data/normal", "fraud": "data/fraud"}
+folders = {"normal": "../data/normal", "fraud": "../data/fraud"}
 
 for label, folder in folders.items():
     if not os.path.exists(folder):
