@@ -14,24 +14,28 @@ The system combines a **speech-to-text (STT)** model, **emotion detection model*
 ## Model Performance Summary
 
 - **Best CV ROC-AUC:** 0.991  
-- **5-Fold CV ROC-AUC:** 0.980 ± 0.024  
+- **5-Fold CV ROC-AUC:** 0.943 ± 0.000  
 - **Accuracy:** 0.80  
 
 ### Classification Metrics
 
 | Label | Precision | Recall | F1-Score | Support |
 |-------|-----------|--------|----------|---------|
-| 0     | 0.71      | 1.00   | 0.83     | 5       |
-| 1     | 1.00      | 0.60   | 0.75     | 5       |
-| **Macro Avg** | 0.86 | 0.80 | 0.79 | 10      |
-| **Weighted Avg** | 0.86 | 0.80 | 0.79 | 10   |
+| 0     | 0.80      | 0.80   | 0.80     | 5       |
+| 1     | 0.80      | 0.80   | 0.80     | 5       |
+| **Macro Avg** | 0.80 | 0.80 | 0.80 | 10      |
+| **Weighted Avg** | 0.80 | 0.80 | 0.80 | 10   |
 
 ### Confusion Matrix
 
 |               | Predicted 0 | Predicted 1 |
 |---------------|------------|------------|
-| **Actual 0**  | 5          | 0          |
-| **Actual 1**  | 2          | 3          |
+| **Actual 0**  | 4          | 1          |
+| **Actual 1**  | 1          | 4          |
+
+### Sample Fraud Probabilities (%)
+- 40.5, 90.0, 10.5, 12.5, 4.5
+
 
 ## Demo
 
